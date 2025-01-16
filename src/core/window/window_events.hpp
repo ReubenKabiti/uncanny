@@ -8,6 +8,7 @@ namespace UC
     KEYDOWN,
     KEYUP,
   };
+
   class WindowEvent
   {
   public:
@@ -18,4 +19,10 @@ namespace UC
   private:
     EventType m_eventType;
   };
+
+  // class KeyEvent : public WindowEvent
+  // {
+  // public:
+  //   KeyEvent() : WindowEvent(EventType::KEYDOWN) {}
+  // };
 }

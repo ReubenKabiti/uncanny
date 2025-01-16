@@ -1,4 +1,6 @@
+#include <iostream>
 #include "application.hpp"
+#include "input/Input.hpp"
 
 namespace UC
 {
@@ -11,7 +13,7 @@ namespace UC
     return true;
   }
 
-  void Application::handleInput()
+  void Application::handleWindowEvents()
   {
     auto events = m_appConfig.window->pollEvents();
     while (!events.empty())
@@ -29,6 +31,11 @@ namespace UC
 
   void Application::update()
   {
+    std::cout << "is null: " << (Input::instance == nullptr) << '\n';
+    if (Input::instance->isKeyDown(Key::A))
+    {
+      std::cout << "Key A is down!\n";
+    }
   }
 
   void Application::render()
@@ -42,7 +49,7 @@ namespace UC
     m_isRunning = true;
     while (m_isRunning)
     {
-      handleInput();
+      handleWindowEvents();
       update();
       render();
     }

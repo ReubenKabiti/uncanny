@@ -17,7 +17,7 @@ namespace UC
     std::string_view run();
 
   private:
-    void handleInput();
+    void handleWindowEvents();
     void update();
     void render();
 
