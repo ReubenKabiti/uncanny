@@ -1,0 +1,6 @@
+namespace UC
+{
+  class WindowEvent
+  {
+  };
+}
