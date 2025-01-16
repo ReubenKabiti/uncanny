@@ -6,12 +6,46 @@ namespace UC
   {
     m_appConfig = appConfig;
     // init all subsystems
-    auto &window = appConfig.window;
-    window->setTitle(appConfig.title);
-    window->setWidth(appConfig.width);
-    window->setHeight(appConfig.height);
     if (!appConfig.window->init())
       return false;
     return true;
+  }
+
+  void Application::handleInput()
+  {
+    auto events = m_appConfig.window->pollEvents();
+    while (!events.empty())
+    {
+      auto event = events.front();
+      events.pop();
+      switch (event.getType())
+      {
+      case EventType::WINDOW_CLOSE:
+        m_isRunning = false;
+        break;
+      }
+    }
+  }
+
+  void Application::update()
+  {
+  }
+
+  void Application::render()
+  {
+    m_appConfig.window->clear();
+    m_appConfig.window->update();
+  }
+
+  std::string_view Application::run()
+  {
+    m_isRunning = true;
+    while (m_isRunning)
+    {
+      handleInput();
+      update();
+      render();
+    }
+    return "";
   }
 }

@@ -1,4 +1,4 @@
-#include "dumm_window.hpp"
+#include "dummy_window.hpp"
 #include <iostream>
 
 namespace UC
