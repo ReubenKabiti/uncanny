@@ -31,11 +31,6 @@ namespace UC
 
   void Application::update()
   {
-    std::cout << "is null: " << (Input::instance == nullptr) << '\n';
-    if (Input::instance->isKeyDown(Key::A))
-    {
-      std::cout << "Key A is down!\n";
-    }
   }
 
   void Application::render()

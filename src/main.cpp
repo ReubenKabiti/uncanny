@@ -3,7 +3,6 @@
 #include "core/constants.hpp"
 #include "core/window/sdl_window/sdl_window.hpp"
 #include "core/input/input.hpp"
-#include "core/input/sdl_input/sdl_input.hpp"
 
 #ifdef WIN
 #include <windows.h>
@@ -40,8 +39,6 @@ int main()
     showError(UC::APP_INIT_ERROR, "Failed to start application, please contact the developer with this error message");
     return 1;
   }
-  auto input = std::make_shared<UC::SDLInput>();
-  UC::Input::init(input);
 
   std::string_view errorMsg = application.run();
   if (errorMsg.size())
