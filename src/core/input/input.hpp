@@ -11,15 +11,27 @@ namespace UC
     D,
     ESC,
   };
+
+  class Keyboard
+  {
+  public:
+    virtual ~Keyboard() {}
+    virtual bool isKeyDown(Key key) = 0;
+  };
+
   class Input
   {
   public:
-    virtual ~Input() {}
-    virtual bool isKeyDown(Key key) = 0;
+    ~Input() {}
+    inline bool isKeyDown(Key key) { return m_keyboard->isKeyDown(key); }
 
-    static void init(std::shared_ptr<Input> instance) { instance = instance; }
+    static std::shared_ptr<Input> getInstance();
 
-  public:
-    static std::shared_ptr<Input> instance;
+    inline void setKeyboard(std::shared_ptr<Keyboard> &keyboard) { m_keyboard = keyboard; }
+
+  private:
+    Input() {}
+
+    std::shared_ptr<Keyboard> m_keyboard;
   };
 }
