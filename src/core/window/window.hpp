@@ -16,14 +16,14 @@ namespace UC
     virtual void update() = 0;
     virtual std::queue<WindowEvent> pollEvents() = 0;
 
-    inline void setTitle(std::string_view &title) { m_title = title; }
-    inline const std::string_view &getTitle() const { return m_title; }
+    virtual inline void setTitle(std::string_view &title) { m_title = title; }
+    virtual inline const std::string_view &getTitle() const { return m_title; }
 
-    inline void setWidth(uint16_t width) { m_width = width; }
-    inline uint16_t getWidth() { return m_width; }
+    virtual inline void setWidth(uint16_t width) { m_width = width; }
+    virtual inline uint16_t getWidth() { return m_width; }
 
-    inline void setHeight(uint16_t height) { m_height = height; }
-    inline uint16_t getHeight() { return m_height; }
+    virtual inline void setHeight(uint16_t height) { m_height = height; }
+    virtual inline uint16_t getHeight() { return m_height; }
 
   protected:
     std::string_view m_title;
