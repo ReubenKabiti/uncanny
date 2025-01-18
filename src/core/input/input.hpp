@@ -27,7 +27,7 @@ namespace UC
 
     static std::shared_ptr<Input> getInstance();
 
-    inline void setKeyboard(std::shared_ptr<Keyboard> &keyboard) { m_keyboard = keyboard; }
+    inline void setKeyboard(const std::shared_ptr<Keyboard> &keyboard) { m_keyboard = keyboard; }
 
   private:
     Input() {}

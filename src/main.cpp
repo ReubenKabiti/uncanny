@@ -3,6 +3,7 @@
 #include "core/constants.hpp"
 #include "core/window/sdl_window/sdl_window.hpp"
 #include "core/input/input.hpp"
+#include "core/input/sdl_keyboard.hpp"
 
 #ifdef WIN
 #include <windows.h>
@@ -39,6 +40,9 @@ int main()
     showError(UC::APP_INIT_ERROR, "Failed to start application, please contact the developer with this error message");
     return 1;
   }
+
+  auto sdlKeyboard = std::make_shared<UC::SDLKeyboard>();
+  UC::Input::getInstance()->setKeyboard(sdlKeyboard);
 
   std::string_view errorMsg = application.run();
   if (errorMsg.size())

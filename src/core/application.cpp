@@ -31,6 +31,10 @@ namespace UC
 
   void Application::update()
   {
+    if (Input::getInstance()->isKeyDown(Key::A))
+    {
+      std::cout << "The key A is down!\n";
+    }
   }
 
   void Application::render()
